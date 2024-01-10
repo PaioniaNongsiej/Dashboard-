@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MEG VAT</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  
+        <style>
+            #footer
+            {
+                height:auto;
+                background-color:#4682B4;
+                font-size: 11px;
+                text-align: right;
+                color: #FFFFFF;
+                line-height: 18px;
+
+
+            }
+        </style>
+</head>
+<body>
+    <div th:fragment="header" class="jumbotron jumbotron-fluid col-md-12" style="background-color:#4682B4">
+        <img class = "img-fluid col-md-4" src = "image/logo.png"  alt = "" style="width:100px; height:100px">
+            <div class="col-md-8 float-left">
+                <h1  style="font-family: 'Playfair Display', serif; font-weight: bold; font-size: 25px; color:#FFFFFF">Taxation Department</h1>
+                <h2 style="font-family: 'Playfair Display', serif; font-weight: bold; font-size: 25px;">Government of Meghalaya</h2> 
+            </div>
+    </div>
+
+    <div th:fragment="sidebar" class="container col-md-12">
+        <div class="col-md-4 ">
+            <ul class="list-group" style="float:left">
+                <!-- Sidebar content -->
+                 <li class="list-group-item" style="background-color:#4682B4; font: bold;"><b>Services</b></li>
+                    <li class="list-group-item" title="An External link that opens in a new window"><a href="https://megtaxation.nic.in/e_registration/">Online Application for Registration (V.A.T.)</a></li>
+                    <li class="list-group-item" title="An External link that opens in a new window"><a href="https://megtaxation.nic.in/CST_REG/">Online CST Registration</a></li>
+                    <li class="list-group-item" title="An External link that opens in a new window"><a href="https://megtaxation.nic.in/EcstDealerSide/">Request for C-form</a></li>
+                    <li class="list-group-item" title="An External link that opens in a new window"><a href="https://megtaxation.nic.in/ECSTVerify/">Verification of E.C form</a></li>
+                    <li class="list-group-item" title="An External link that opens in a new window"><a href="https://megtaxation.nic.in/eamendmentDealer/">E-Amendment</a></li>
+                    <li class="list-group-item" title="An External link that opens in a new window"><a href="https://megtaxation.nic.in/DealerProfile/">V.A.T Dealer Profile</a></li>
+                    <li class="list-group-item" title="An External link that opens in a new window"><a href="https://megepayment.gov.in/">Online Payment of Tax</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div th:fragment="footer" id="footer" class="col-md-12">
+        <center>
+            Designed, Developed and Hosted by National Informatics Center (NIC)
+        </center>
+    </div>
+</body>
+</html>
