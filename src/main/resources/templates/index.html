@@ -7,6 +7,8 @@
         <meta http-equiv="X-XSS-Protection" content="1; mode=block">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link th:href="@{/css/style.css}" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  
         <style>
@@ -21,32 +23,139 @@
 
 
             }
+            
+             .jumbotron {
+            height: 150px; 
+       		 }
+        
+        
         </style>
 </head>
 <body>
     <div th:fragment="header" class="jumbotron jumbotron-fluid col-md-12" style="background-color:#4682B4">
-        <img class = "img-fluid col-md-4" src = "image/logo.png"  alt = "" style="width:100px; height:100px">
-            <div class="col-md-8 float-left">
-                <h1  style="font-family: 'Playfair Display', serif; font-weight: bold; font-size: 25px; color:#FFFFFF">Taxation Department</h1>
-                <h2 style="font-family: 'Playfair Display', serif; font-weight: bold; font-size: 25px;">Government of Meghalaya</h2> 
+        <img class = "img-fluid col-md-2" src = "image/logo.png"  alt = "" style="width:80px; height:80px; margin-top:-10px;">
+            <div class="col-md-5 float-left">
+                <h1  style="font-family: 'Playfair Display', serif; font-weight: bold; font-size: 20px; color:#FFFFFF; margin-top:0px">Taxation Department</h1>
+                <h2 style="font-family: 'Playfair Display', serif; font-weight: bold; font-size: 20px; margin-top:0px">Government of Meghalaya</h2> 
             </div>
     </div>
 
     <div th:fragment="sidebar" class="container col-md-12">
-        <div class="col-md-4 ">
-            <ul class="list-group" style="float:left">
-                <!-- Sidebar content -->
-                 <li class="list-group-item" style="background-color:#4682B4; font: bold;"><b>Services</b></li>
-                    <li class="list-group-item" title="An External link that opens in a new window"><a href="https://megtaxation.nic.in/e_registration/">Online Application for Registration (V.A.T.)</a></li>
-                    <li class="list-group-item" title="An External link that opens in a new window"><a href="https://megtaxation.nic.in/CST_REG/">Online CST Registration</a></li>
-                    <li class="list-group-item" title="An External link that opens in a new window"><a href="https://megtaxation.nic.in/EcstDealerSide/">Request for C-form</a></li>
-                    <li class="list-group-item" title="An External link that opens in a new window"><a href="https://megtaxation.nic.in/ECSTVerify/">Verification of E.C form</a></li>
-                    <li class="list-group-item" title="An External link that opens in a new window"><a href="https://megtaxation.nic.in/eamendmentDealer/">E-Amendment</a></li>
-                    <li class="list-group-item" title="An External link that opens in a new window"><a href="https://megtaxation.nic.in/DealerProfile/">V.A.T Dealer Profile</a></li>
-                    <li class="list-group-item" title="An External link that opens in a new window"><a href="https://megepayment.gov.in/">Online Payment of Tax</a></li>
-            </ul>
+        <div class="col-md-3 ">
+			  <ul class="list" style="float:left; margin-top:-10px;">
+				 <h1 style="font-family: 'Playfair Display', serif; font-size:30px;"><b>E-Services</b></h1>
+				    <li class="personal">
+				      <span class="title" title="An External link that opens in a new window"><a href="https://megtaxation.nic.in/e_registration/">Online Application for Registration</a></span>
+				      <span class="subtitle">(V.A.T.)</span>
+				    </li>
+				    <li class="personal">
+				      <span class="title" title="An External link that opens in a new window"><a href="https://megtaxation.nic.in/CST_REG/">Online CST Registration</a></span> 
+				    </li>
+				    <li class="personal">
+				      <span class="title" title="An External link that opens in a new window"><a href="https://megtaxation.nic.in/EcstDealerSide/">Request for C-form</a></span>
+				    </li>
+				    <li class="personal">
+				      <span class="title" title="An External link that opens in a new window"><a href="https://megtaxation.nic.in/ECSTVerify/">Verification of E.C form</a></span>
+				    </li>
+				    <li class="personal">
+				      <span class="title" title="An External link that opens in a new window"><a href="https://megtaxation.nic.in/eamendmentDealer/">E-Amendment</a></span>
+				    </li>
+				    <li class="personal">
+				      <span class="title" title="An External link that opens in a new window"><a href="https://megtaxation.nic.in/DealerProfile/">V.A.T Dealer Profile</a></span>
+				    </li>
+				    <li class="personal">
+				      <span class="title" title="An External link that opens in a new window"><a href="https://megepayment.gov.in/">Online Payment of Tax</a></span>
+				    </li>
+			  </ul>
+			
         </div>
+        
+        
+        <div th:fragment="content" class="container col-md-8 mb-4" style="padding-right:10px; padding-top:10px;">
+	       <div class="card col-md-8 mb-4" style="float: left; margin-top: 0px; margin-left: 10px; padding-right:20px; background: linear-gradient(to right, #4682B4, #ffffff); border: 1px solid #ccc; width: 30rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+			    <div class="card" style="width: 25rem; border-radius: 8px;">
+			        <div class="card-body" style="padding: 20px; color: #000;">
+			            <div class="lead"><i class="fa-solid fa-user-plus"></i> Active Dealer</div>
+			            <h2 class="card-title"><span th:text="${vatRegistered}" style="font-weight: bold;"></span></h2>
+			            <p class="small black-text"> 
+				            <span th:text="${#dates.format(MinDate, 'MMM yyyy')}"></span> - 
+				            <span th:text="${#dates.format(#dates.createNow(), 'MMM yyyy')}" /><i class="glyphicon glyphicon-map-marker"></i> Meghalaya
+				        </p>
+			        </div>
+			    </div>
+			</div>
+			
+			
+			<div class="card col-md-8 mb-4" style="float: left; margin-top: 0px; margin-left: 10px; padding-right:20px;  background: linear-gradient(to right, #4682B4, #ffffff); border: 1px solid #ccc; width: 30rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+			    <div class="card" style="width: 25rem; border-radius: 8px;">
+			        <div class="card-body" style="padding: 20px; color: #000;">
+			            <div class="lead"><i class="fa-solid fa-user-minus"></i> Inactive Dealer</div>
+			            <h2 class="card-title"><span th:text="${vatCancelled}" style="font-weight: bold;"></span></h2>
+			            <p class="small black-text">
+				            <span th:text="${#dates.format(MinDate, 'MMM yyyy')}"></span> - 
+				            <span th:text="${#dates.format(#dates.createNow(), 'MMM yyyy')}" /><i class="glyphicon glyphicon-map-marker"></i> Meghalaya
+			            </p>
+			        </div>
+			    </div>
+			</div>
+			
+			<div class="card col-md-8 mb-4" style="float: left; margin-top: 0px; margin-left: 10px; padding-right:20px;  background: linear-gradient(to right, #4682B4, #ffffff); border: 1px solid #ccc; width: 30rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+			    <div class="card" style="width: 25rem; border-radius: 8px;">
+			        <div class="card-body" style="padding: 20px; color: #000;">
+			            <div class="lead"><i class="fa-solid fa-user"></i> Transferred Dealer</div>
+			            <h2 class="card-title"><span th:text="${vatTransferred}" style="font-weight: bold;"></span></h2>
+			            <p class="small black-text">
+				            <span th:text="${#dates.format(MinDate, 'MMM yyyy')}"></span> - 
+				            <span th:text="${#dates.format(#dates.createNow(), 'MMM yyyy')}" /><i class="glyphicon glyphicon-map-marker"></i> Meghalaya
+			            </p>
+			        </div>
+			    </div>
+			</div>
+			
+			
+			<div class="card col-md-8 mb-4" style="float: left; margin-top: 0px; margin-left: 10px; background: linear-gradient(to right, #4682B4, #ffffff); border: 1px solid #ccc; width: 30rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+			    <div class="card" style="width: 25rem; border-radius: 8px;">
+			        <div class="card-body" style="padding: 20px; color: #000;">
+			            <div class="lead"><i class="fa-solid fa-clipboard fa-1x"></i> Cform Request</div>
+			            <h2 class="card-title"><span th:text="${CformCount}" style="font-weight: bold;"></span></h2>
+			            <p class="small black-text"> 
+			            	<span th:text="${#dates.format(CRequestDate, 'MMM yyyy')}"></span> - 
+			             	<span th:text="${#dates.format(#dates.createNow(), 'MMM yyyy')}" /><i class="glyphicon glyphicon-map-marker"></i> Meghalaya
+			            </p>
+			        </div>
+			    </div>
+			</div>
+			
+			<div class="card col-md-8 mb-4" style="float: left; margin-top: 0px; margin-left: 10px; background: linear-gradient(to right, #4682B4, #ffffff); border: 1px solid #ccc; width: 30rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+			    <div class="card" style="width: 25rem; border-radius: 8px;">
+			        <div class="card-body" style="padding: 20px; color: #000;">
+			            <div class="lead"><i class="fa-solid fa-clipboard fa-1x"></i> Cform Issued</div>
+			            <h2 class="card-title"><span th:text="${CformIssued}" style="font-weight: bold;"></span></h2>
+			             <p class="small black-text"> 
+			            	<span th:text="${#dates.format(IssuedDate, 'MMM yyyy')}"></span> - 
+			             	<span th:text="${#dates.format(#dates.createNow(), 'MMM yyyy')}" /><i class="glyphicon glyphicon-map-marker"></i> Meghalaya
+			            </p>
+			        </div>
+			    </div>
+			</div>
+			
+			<div class="card col-md-8 mb-4" style="float: left; margin-top: 0px; margin-left: 10px; background: linear-gradient(to right, #4682B4, #ffffff); border: 1px solid #ccc; width: 30rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+			    <div class="card" style="width: 25rem; border-radius: 8px;">
+			        <div class="card-body" style="padding: 20px; color: #000;">
+			            <div class="lead"><i class="fa-solid fa-clipboard fa-1x"></i> Invoice request</div>
+			            <h2 class="card-title"><span th:text="${InvoiceRequest}" style="font-weight: bold;"></span></h2>
+			            <p class="small black-text"> 
+			            	<span th:text="${#dates.format(InvoiceDate, 'MMM yyyy')}"></span> - 
+			             	<span th:text="${#dates.format(#dates.createNow(), 'MMM yyyy')}" /><i class="glyphicon glyphicon-map-marker"></i> Meghalaya
+			            </p>
+			        </div>
+			    </div>
+			</div>
+ 
+    	</div>
     </div>
+    
+    
 
     <div th:fragment="footer" id="footer" class="col-md-12">
         <center>
