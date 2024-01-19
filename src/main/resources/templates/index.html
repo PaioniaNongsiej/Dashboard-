@@ -76,7 +76,7 @@
 			    <div class="card" style="width: 25rem; border-radius: 8px;">
 			        <div class="card-body" style="padding: 20px; color: #000;">
 			            <div class="lead"><i class="fa-solid fa-user-plus"></i> Active Dealer</div>
-			            <h2 class="card-title"><span th:text="${vatRegistered}" style="font-weight: bold;"></span></h2>
+			            <h2 class="card-title"><span th:text="${vatSummary.vatRegistered}" style="font-weight: bold;"></span></h2>
 			            <p class="small black-text"> 
 				            <span th:text="${#dates.format(MinDate, 'MMM yyyy')}"></span> - 
 				            <span th:text="${#dates.format(#dates.createNow(), 'MMM yyyy')}" /><i class="glyphicon glyphicon-map-marker"></i> Meghalaya

@@ -3,35 +3,52 @@ package org.nic.Index.dto;
 import java.util.Date;
 
 public class RegdDealerSummaryDTO {
-	 private int vatRegistered;
-	    private int vatTransferred;
-	    private int vatCancelled;
-	    private Date minLogDate;
-	    
-		public int getVatRegistered() {
-			return vatRegistered;
-		}
-		public void setVatRegistered(int vatRegistered) {
-			this.vatRegistered = vatRegistered;
-		}
-		public int getVatTransferred() {
-			return vatTransferred;
-		}
-		public void setVatTransferred(int vatTransferred) {
-			this.vatTransferred = vatTransferred;
-		}
-		public int getVatCancelled() {
-			return vatCancelled;
-		}
-		public void setVatCancelled(int vatCancelled) {
-			this.vatCancelled = vatCancelled;
-		}
-		public Date getMinLogDate() {
-			return minLogDate;
-		}
-		public void setMinLogDate(Date minLogDate) {
-			this.minLogDate = minLogDate;
-		}
-	    
-	    
+	private Long vatRegistered;
+    private Long vatTransferred;
+    private Long vatCancelled;
+    private Date minLogDate;
+
+    public RegdDealerSummaryDTO() {
+        
+    }
+
+    public RegdDealerSummaryDTO(Long vatRegistered, Long vatTransferred, Long vatCancelled, Date minLogDate) {
+        this.vatRegistered = vatRegistered;
+        this.vatTransferred = vatTransferred;
+        this.vatCancelled = vatCancelled;
+        this.minLogDate = minLogDate;
+    }
+
+    public Long getVatRegistered() {
+        return vatRegistered;
+    }
+
+    public void setVatRegistered(Long vatRegistered) {
+        this.vatRegistered = vatRegistered;
+    }
+
+    public Long getVatTransferred() {
+        return vatTransferred;
+    }
+
+    public void setVatTransferred(Long vatTransferred) {
+        this.vatTransferred = vatTransferred;
+    }
+
+    public Long getVatCancelled() {
+        return vatCancelled;
+    }
+
+    public void setVatCancelled(Long vatCancelled) {
+        this.vatCancelled = vatCancelled;
+    }
+
+    public Date getMinLogDate() {
+        return minLogDate;
+    }
+
+    public void setMinLogDate(Date minLogDate) {
+        this.minLogDate = minLogDate;
+    }
+		
 }

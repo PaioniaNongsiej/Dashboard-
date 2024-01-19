@@ -2,6 +2,7 @@ package org.nic.Index.service.impl;
 
 import java.util.Date;
 
+import org.nic.Index.dto.RegdDealerSummaryDTO;
 import org.nic.Index.repository.CformIssuedRepository;
 import org.nic.Index.repository.CformRequestRepository;
 import org.nic.Index.repository.InvoiceRequestRepository;
@@ -20,15 +21,19 @@ public class CardsServices {
 	@Autowired
 	public InvoiceRequestRepository invoiceRequestRepository;
 	
-	public int getVatRegistered() {
-		return regdDealerRepository.countVatRegistrations();
-	}
-	public int getVatTransferred() {
-		return regdDealerRepository.countVatTransferred();
-	}
-	public int getVatCancelled() {
-		return regdDealerRepository.countVatCancelled();
-	}
+//	public int getVatRegistered() {
+//		return regdDealerRepository.countVatRegistrations();
+//	}
+//	public int getVatTransferred() {
+//		return regdDealerRepository.countVatTransferred();
+//	}
+//	public int getVatCancelled() {
+//		return regdDealerRepository.countVatCancelled();
+//	}
+	
+	public RegdDealerSummaryDTO getVatSummary() {
+        return regdDealerRepository.getVatSummary();
+    }
 	public int getCformCount() {
 		return cformRequestRepository.CountCform();
 	}
@@ -39,9 +44,9 @@ public class CardsServices {
 	public Long getInvoiceRequest() {
 		return invoiceRequestRepository.countInvoiceRequest();
 	}
-	public Date getLogDate() {
-		return regdDealerRepository.minLogDate();
-	}
+//	public Date getLogDate() {
+//		return regdDealerRepository.minLogDate();
+//	}
 	public Date getRequestDate() {
 		return cformRequestRepository.MinRequestDt();
 	}
