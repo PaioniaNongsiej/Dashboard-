@@ -30,6 +30,31 @@
         
         
         </style>
+        <script th:inline="javascript">
+		    document.addEventListener("DOMContentLoaded", function() {
+		        // Get the month dropdown element
+		        var monthDropdown = document.getElementById("monthDropdown");
+		
+		        // Add default option
+		        var defaultOption = document.createElement("option");
+		        defaultOption.text = "Please select...";
+		        monthDropdown.add(defaultOption);
+		
+		        // Array of month names
+		        var monthNames = [
+		            "January", "February", "March", "April", "May", "June",
+		            "July", "August", "September", "October", "November", "December"
+		        ];
+		
+		        // Populate options with month names
+		        monthNames.forEach(function(month, index) {
+		            var option = document.createElement("option");
+		            option.value = index + 1;
+		            option.text = month;
+		            monthDropdown.add(option);
+		        });
+		    });
+		</script>
 </head>
 <body>
     <div th:fragment="header" class="jumbotron jumbotron-fluid col-md-12" style="background-color:#4682B4">
@@ -72,87 +97,122 @@
         
         
         <div th:fragment="content" class="container col-md-8 mb-4" style="padding-right:10px; padding-top:10px;">
-	       <div class="card col-md-8 mb-4" style="float: left; margin-top: 0px; margin-left: 10px; padding-right:20px; background: linear-gradient(to right, #4682B4, #ffffff); border: 1px solid #ccc; width: 30rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-			    <div class="card" style="width: 25rem; border-radius: 8px;">
-			        <div class="card-body" style="padding: 20px; color: #000;">
-			            <div class="lead"><i class="fa-solid fa-user-plus"></i> Active Dealer</div>
-			            <h2 class="card-title"><span th:text="${vatSummary.vatRegistered}" style="font-weight: bold;"></span></h2>
-			            <p class="small black-text"> 
-				            <span th:text="${#dates.format(vatSummary.minLogDate, 'MMM yyyy')}"></span> - 
-				            <span th:text="${#dates.format(#dates.createNow(), 'MMM yyyy')}" /><i class="glyphicon glyphicon-map-marker"></i> Meghalaya
-				        </p>
-			        </div>
-			    </div>
+	       <div class="col-md-4">
+		       <div class="card col-md-8 mb-4" style="float: left; margin-top: 0px; margin-bottom: 10px; margin-left: 10px; padding-right:20px; background: linear-gradient(to right, #4682B4, #ffffff); border: 1px solid #ccc; width: 30rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+				    <div class="card" style="width: 25rem; border-radius: 8px;">
+				        <div class="card-body" style="padding: 20px; color: #000;">
+				            <div class="lead"><i class="fa-solid fa-user-plus"></i> Active Dealer</div>
+				            <h2 class="card-title"><span th:text="${vatSummary.vatRegistered}" style="font-weight: bold;"></span></h2>
+				            <p class="small black-text"> 
+					            <span th:text="${#dates.format(vatSummary.minLogDate, 'MMM yyyy')}"></span> - 
+					            <span th:text="${#dates.format(#dates.createNow(), 'MMM yyyy')}" /><i class="glyphicon glyphicon-map-marker"></i> Meghalaya
+					        </p>
+				        </div>
+				    </div>
+				</div>
 			</div>
 			
-			
-			<div class="card col-md-8 mb-4" style="float: left; margin-top: 0px; margin-left: 10px; padding-right:20px;  background: linear-gradient(to right, #4682B4, #ffffff); border: 1px solid #ccc; width: 30rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-			    <div class="card" style="width: 25rem; border-radius: 8px;">
-			        <div class="card-body" style="padding: 20px; color: #000;">
-			            <div class="lead"><i class="fa-solid fa-user-minus"></i> Inactive Dealer</div>
-			            <h2 class="card-title"><span th:text="${vatSummary.vatCancelled}" style="font-weight: bold;"></span></h2>
-			            <p class="small black-text">
-				            <span th:text="${#dates.format(vatSummary.minLogDate, 'MMM yyyy')}"></span> - 
-				            <span th:text="${#dates.format(#dates.createNow(), 'MMM yyyy')}" /><i class="glyphicon glyphicon-map-marker"></i> Meghalaya
-			            </p>
-			        </div>
-			    </div>
+			<div class="col-md-4">
+				<div class="card col-md-8 mb-4" style="float: left; margin-top: 0px; margin-bottom: 10px; margin-left: 10px; padding-right:20px;  background: linear-gradient(to right, #4682B4, #ffffff); border: 1px solid #ccc; width: 30rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+				    <div class="card" style="width: 25rem; border-radius: 8px;">
+				        <div class="card-body" style="padding: 20px; color: #000;">
+				            <div class="lead"><i class="fa-solid fa-user-minus"></i> Inactive Dealer</div>
+				            <h2 class="card-title"><span th:text="${vatSummary.vatCancelled}" style="font-weight: bold;"></span></h2>
+				            <p class="small black-text">
+					            <span th:text="${#dates.format(vatSummary.minLogDate, 'MMM yyyy')}"></span> - 
+					            <span th:text="${#dates.format(#dates.createNow(), 'MMM yyyy')}" /><i class="glyphicon glyphicon-map-marker"></i> Meghalaya
+				            </p>
+				        </div>
+				    </div>
+				</div>
 			</div>
 			
-			<div class="card col-md-8 mb-4" style="float: left; margin-top: 0px; margin-left: 10px; padding-right:20px;  background: linear-gradient(to right, #4682B4, #ffffff); border: 1px solid #ccc; width: 30rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-			    <div class="card" style="width: 25rem; border-radius: 8px;">
-			        <div class="card-body" style="padding: 20px; color: #000;">
-			            <div class="lead"><i class="fa-solid fa-user"></i> Transferred Dealer</div>
-			            <h2 class="card-title"><span th:text="${vatSummary.vatTransferred}" style="font-weight: bold;"></span></h2>
-			            <p class="small black-text">
-				            <span th:text="${#dates.format(vatSummary.minLogDate, 'MMM yyyy')}"></span> - 
-				            <span th:text="${#dates.format(#dates.createNow(), 'MMM yyyy')}" /><i class="glyphicon glyphicon-map-marker"></i> Meghalaya
-			            </p>
-			        </div>
-			    </div>
+			<div class="col-md-4">
+				<div class="card col-md-8 mb-4" style="float: left; margin-top: 0px; margin-bottom: 10px; margin-left: 10px; padding-right:20px;  background: linear-gradient(to right, #4682B4, #ffffff); border: 1px solid #ccc; width: 30rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+				    <div class="card" style="width: 25rem; border-radius: 8px;">
+				        <div class="card-body" style="padding: 20px; color: #000;">
+				            <div class="lead"><i class="fa-solid fa-user"></i> Transferred Dealer</div>
+				            <h2 class="card-title"><span th:text="${vatSummary.vatTransferred}" style="font-weight: bold;"></span></h2>
+				            <p class="small black-text">
+					            <span th:text="${#dates.format(vatSummary.minLogDate, 'MMM yyyy')}"></span> - 
+					            <span th:text="${#dates.format(#dates.createNow(), 'MMM yyyy')}" /><i class="glyphicon glyphicon-map-marker"></i> Meghalaya
+				            </p>
+				        </div>
+				    </div>
+				</div>
 			</div>
 			
-			
-			<div class="card col-md-8 mb-4" style="float: left; margin-top: 0px; margin-left: 10px; background: linear-gradient(to right, #4682B4, #ffffff); border: 1px solid #ccc; width: 30rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-			    <div class="card" style="width: 25rem; border-radius: 8px;">
-			        <div class="card-body" style="padding: 20px; color: #000;">
-			            <div class="lead"><i class="fa-solid fa-clipboard fa-1x"></i> Cform Request</div>
-			            <h2 class="card-title"><span th:text="${RequestSummary.CformCount}" style="font-weight: bold;"></span></h2>
-			            <p class="small black-text"> 
-			            	<span th:text="${#dates.format(RequestSummary.CRequestDate, 'MMM yyyy')}"></span> - 
-			             	<span th:text="${#dates.format(#dates.createNow(), 'MMM yyyy')}" /><i class="glyphicon glyphicon-map-marker"></i> Meghalaya
-			            </p>
-			        </div>
-			    </div>
+			<div class="col-md-4">
+				<div class="card col-md-8 mb-4" style="float: left; margin-top: 0px; margin-bottom: 10px; margin-left: 10px; background: linear-gradient(to right, #4682B4, #ffffff); border: 1px solid #ccc; width: 30rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+				    <div class="card" style="width: 25rem; border-radius: 8px;">
+				        <div class="card-body" style="padding: 20px; color: #000;">
+				            <div class="lead"><i class="fa-solid fa-clipboard fa-1x"></i> Cform Request</div>
+				            <h2 class="card-title"><span th:text="${RequestSummary.CformCount}" style="font-weight: bold;"></span></h2>
+				            <p class="small black-text"> 
+				            	<span th:text="${#dates.format(RequestSummary.CRequestDate, 'MMM yyyy')}"></span> - 
+				             	<span th:text="${#dates.format(#dates.createNow(), 'MMM yyyy')}" /><i class="glyphicon glyphicon-map-marker"></i> Meghalaya
+				            </p>
+				        </div>
+				    </div>
+				</div>
 			</div>
 			
-			<div class="card col-md-8 mb-4" style="float: left; margin-top: 0px; margin-left: 10px; background: linear-gradient(to right, #4682B4, #ffffff); border: 1px solid #ccc; width: 30rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-			    <div class="card" style="width: 25rem; border-radius: 8px;">
-			        <div class="card-body" style="padding: 20px; color: #000;">
-			            <div class="lead"><i class="fa-solid fa-clipboard fa-1x"></i> Cform Issued</div>
-			            <h2 class="card-title"><span th:text="${IssuedSummary.CformIssued}" style="font-weight: bold;"></span></h2>
-			             <p class="small black-text"> 
-			            	<span th:text="${#dates.format(IssuedSummary.IssuedDate, 'MMM yyyy')}"></span> - 
-			             	<span th:text="${#dates.format(#dates.createNow(), 'MMM yyyy')}" /><i class="glyphicon glyphicon-map-marker"></i> Meghalaya
-			            </p>
-			        </div>
-			    </div>
+			<div class="col-md-4">
+				<div class="card col-md-8 mb-4" style="float: left; margin-top: 0px; margin-bottom: 10px; margin-left: 10px; background: linear-gradient(to right, #4682B4, #ffffff); border: 1px solid #ccc; width: 30rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+				    <div class="card" style="width: 25rem; border-radius: 8px;">
+				        <div class="card-body" style="padding: 20px; color: #000;">
+				            <div class="lead"><i class="fa-solid fa-clipboard fa-1x"></i> Cform Issued</div>
+				            <h2 class="card-title"><span th:text="${IssuedSummary.CformIssued}" style="font-weight: bold;"></span></h2>
+				             <p class="small black-text"> 
+				            	<span th:text="${#dates.format(IssuedSummary.IssuedDate, 'MMM yyyy')}"></span> - 
+				             	<span th:text="${#dates.format(#dates.createNow(), 'MMM yyyy')}" /><i class="glyphicon glyphicon-map-marker"></i> Meghalaya
+				            </p>
+				        </div>
+				    </div>
+				</div>
 			</div>
 			
-			<div class="card col-md-8 mb-4" style="float: left; margin-top: 0px; margin-left: 10px; background: linear-gradient(to right, #4682B4, #ffffff); border: 1px solid #ccc; width: 30rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-			    <div class="card" style="width: 25rem; border-radius: 8px;">
-			        <div class="card-body" style="padding: 20px; color: #000;">
-			            <div class="lead"><i class="fa-solid fa-clipboard fa-1x"></i> Invoice request</div>
-			            <h2 class="card-title"><span th:text="${invoiceSummary.InvoiceRequest}" style="font-weight: bold;"></span></h2>
-			            <p class="small black-text"> 
-			            	<span th:text="${#dates.format(invoiceSummary.InvoiceDate, 'MMM yyyy')}"></span> - 
-			             	<span th:text="${#dates.format(#dates.createNow(), 'MMM yyyy')}" /><i class="glyphicon glyphicon-map-marker"></i> Meghalaya
-			            </p>
-			        </div>
-			    </div>
+			<div class="col-md-4">
+				<div class="card col-md-8 mb-4" style="float: left; margin-top: 0px; margin-bottom: 10px;  margin-left: 10px; background: linear-gradient(to right, #4682B4, #ffffff); border: 1px solid #ccc; width: 30rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+				    <div class="card" style="width: 25rem; border-radius: 8px;">
+				        <div class="card-body" style="padding: 20px; color: #000;">
+				            <div class="lead"><i class="fa-solid fa-clipboard fa-1x"></i> Invoice request</div>
+				            <h2 class="card-title"><span th:text="${invoiceSummary.InvoiceRequest}" style="font-weight: bold;"></span></h2>
+				            <p class="small black-text"> 
+				            	<span th:text="${#dates.format(invoiceSummary.InvoiceDate, 'MMM yyyy')}"></span> - 
+				             	<span th:text="${#dates.format(#dates.createNow(), 'MMM yyyy')}" /><i class="glyphicon glyphicon-map-marker"></i> Meghalaya
+				            </p>
+				        </div>
+				    </div>
+				</div>
 			</div>
- 
+			
+			<div class="col-md-4">
+	 			<div class="dropdown" style="margin-bottom: 10px;  margin-top: 20px;">
+			        <select class="form-control" id="typeDropdown" style="width: 33rem; border-radius: 8px;">
+			        	<option value = "select">Please select...</option>
+			            <option value="cform">Cform Request</option>
+			            <option value="dealer">Dealer Registered</option>
+			            <option value="invoice">Invoice Request</option>
+			        </select>
+			    </div>
+		    </div>
+		    
+		    <div class="col-md-4">
+			    <div class="dropdown" style="width: 33rem; border-radius: 8px; margin-bottom: 10px; margin-top: 20px;">
+				    <select class="form-control"  id="monthDropdown"></select>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+			    <div class="dropdown" style="width: 33rem; margin-bottom: 10px; margin-top: 20px;">
+			        <select class="form-control" id="typeDropdown">
+			        </select>
+			    </div>
+		    </div>
     	</div>
+    	 
+    	
     </div>
     
     
