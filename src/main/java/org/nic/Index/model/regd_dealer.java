@@ -16,12 +16,15 @@ public class regd_dealer  {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+	
+	@Column(name = "vat_rc_no")
+    private String tinNumber;
 
-    private String vat_rc_no;
+	@Column(name = "status_cd")
+    private String status;
 
-    private String status_cd;
-
-    private Date log_dt;
+	@Column(name = "log_dt")
+    private Date logDate;
 
 	public Long getId() {
 		return id;
@@ -31,28 +34,28 @@ public class regd_dealer  {
 		this.id = id;
 	}
 
-	public String getVat_rc_no() {
-		return vat_rc_no;
+	public String gettinNumber() {
+		return tinNumber;
 	}
 
-	public void setVat_rc_no(String vat_rc_no) {
-		this.vat_rc_no = vat_rc_no;
+	public void settinNumber(String tinNumber) {
+		this.tinNumber = tinNumber;
 	}
 
-	public String getStatus_cd() {
-		return status_cd;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setStatus_cd(String status_cd) {
-		this.status_cd = status_cd;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
-	public Date getLog_dt() {
-		return log_dt;
+	public Date getlogDate() {
+		return logDate;
 	}
 
-	public void setLog_dt(Date log_dt) {
-		this.log_dt = log_dt;
+	public void setlogDate(Date logDate) {
+		this.logDate = logDate;
 	}
 
 	

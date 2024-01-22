@@ -2,6 +2,7 @@ package org.nic.Index.model;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,16 +16,18 @@ public class cformIssued {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String final_sl_no;
+	@Column(name = "final_sl_no")
+    private String finalSlNo;
     
-    private Date log_date;
+	@Column(name = "log_date")
+    private Date logDate;
 
 	public Date getLog_date() {
-		return log_date;
+		return logDate;
 	}
 
-	public void setLog_date(Date log_date) {
-		this.log_date = log_date;
+	public void setLog_date(Date logDate) {
+		this.logDate = logDate;
 	}
 
 	public Long getId() {
@@ -35,11 +38,11 @@ public class cformIssued {
 		this.id = id;
 	}
 
-	public String getFinal_sl_no() {
-		return final_sl_no;
+	public String getFinalSlNo() {
+		return finalSlNo;
 	}
 
-	public void setFinal_sl_no(String final_sl_no) {
-		this.final_sl_no = final_sl_no;
+	public void setFinal_sl_no(String finalSlNo) {
+		this.finalSlNo = finalSlNo;
 	}
 }

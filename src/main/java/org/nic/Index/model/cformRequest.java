@@ -2,6 +2,7 @@ package org.nic.Index.model;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,16 +16,18 @@ public class cformRequest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String ack_no;
+	@Column(name="ack_no")
+    private String requestNo;
     
-    private Date request_date;
+	@Column(name="request_date")
+    private Date requestDt;
 
-	public Date getRequest_date() {
-		return request_date;
+	public Date getrequestDt() {
+		return requestDt;
 	}
 
-	public void setRequest_date(Date request_date) {
-		this.request_date = request_date;
+	public void setrequestDt(Date requestDt) {
+		this.requestDt = requestDt;
 	}
 
 	public Long getId() {
@@ -35,11 +38,11 @@ public class cformRequest {
 		this.id = id;
 	}
 
-	public String getAck_no() {
-		return ack_no;
+	public String getrequestNo() {
+		return requestNo;
 	}
 
-	public void setAck_no(String ack_no) {
-		this.ack_no = ack_no;
+	public void setrequestNo(String requestNo) {
+		this.requestNo = requestNo;
 	}
 }

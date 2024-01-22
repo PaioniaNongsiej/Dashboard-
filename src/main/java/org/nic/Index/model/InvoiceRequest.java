@@ -2,6 +2,7 @@ package org.nic.Index.model;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,16 +16,18 @@ public class InvoiceRequest {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long df_invoice_id;
+	@Column(name="df_invoice_id")
+    private Long InvoiceNo;
     
-    private Date invoice_date;
+	@Column(name="invoice_date")
+    private Date InvoiceDt;
 
-	public Date getInvoice_date() {
-		return invoice_date;
+	public Date getInvoiceDt() {
+		return InvoiceDt;
 	}
 
-	public void setInvoice_date(Date invoice_date) {
-		this.invoice_date = invoice_date;
+	public void setInvoiceDt(Date InvoiceDt) {
+		this.InvoiceDt = InvoiceDt;
 	}
 
 	public Long getId() {
@@ -35,12 +38,12 @@ public class InvoiceRequest {
 		this.id = id;
 	}
 
-	public Long getDf_invoice_id() {
-		return df_invoice_id;
+	public Long getInvoiceNo() {
+		return InvoiceNo;
 	}
 
-	public void setDf_invoice_id(Long df_invoice_id) {
-		this.df_invoice_id = df_invoice_id;
+	public void setInvoiceNo(Long InvoiceNo) {
+		this.InvoiceNo = InvoiceNo;
 	}
     
 
