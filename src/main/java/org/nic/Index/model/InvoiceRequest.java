@@ -45,6 +45,5 @@ public class InvoiceRequest {
 	public void setInvoiceNo(Long InvoiceNo) {
 		this.InvoiceNo = InvoiceNo;
 	}
-    
 
 }

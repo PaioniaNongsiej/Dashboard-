@@ -9,7 +9,9 @@ public interface InvoiceRequestRepository extends JpaRepository<InvoiceRequest, 
 	
 	@Query("SELECT new org.nic.Index.dto.InvoiceRequestDTO(" +
 		       "COUNT(rd.InvoiceNo) AS InvoiceRequest, " +
-		       "MIN(rd.InvoiceDt) AS InvoiceDate) " +
+		       "MIN(rd.InvoiceDt) AS InvoiceDate, " +
+		       "MAX(rd.InvoiceDt) AS MaxInvoiceDate, "+
+		       "COUNT(CASE WHEN MONTH(rd.InvoiceDt) = MONTH(CURRENT_DATE()) AND YEAR(rd.InvoiceDt) = YEAR(CURRENT_DATE()) THEN 1 ELSE NULL END) AS CurrentMonthInvoice) " +
 		       "FROM InvoiceRequest rd")
 	
 	InvoiceRequestDTO getInvoiceRequestSummary();
